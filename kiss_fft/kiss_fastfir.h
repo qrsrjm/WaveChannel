@@ -15,7 +15,7 @@
 
 
 
-
+#include "kiss_fftr.h"
 
 
 
@@ -26,7 +26,7 @@
  */
 #ifdef REAL_FASTFIR
 #define MIN_FFT_LEN 2048
-#include "kiss_fftr.h"
+
 
 typedef kiss_fft_scalar kffsamp_t;
 typedef kiss_fftr_cfg kfcfg_t;

@@ -47,7 +47,7 @@ int WTLinkChecksumDecode(WaveTransLinkPackage * package)
   }
   memcpy(buff, package->byte_data_, package->real_data_num_);
   memcpy(buff + package->real_data_num_, &package->check_sum_, COMPARE_FREQ_CHECKSUM_NUM);
-  decode_rs_char(rs_hander, buff, eras_pos, 0);
+  decode_rs_char((RS*)rs_hander, buff, eras_pos, 0);
   memcpy(package->byte_data_, buff, package->real_data_num_);
   free_rs_cache();
   return 1;
@@ -61,7 +61,7 @@ void WTLinkChecksumEncode(WaveTransLinkPackage * package)
   if (rs_hander == NULL) {
     return;
   }
-  encode_rs_char(rs_hander, (data_t *)package->byte_data_, (data_t *)(&package->check_sum_));
+  encode_rs_char((RS*)rs_hander, (data_t *)package->byte_data_, (data_t *)(&package->check_sum_));
   free_rs_cache();
 }
 
